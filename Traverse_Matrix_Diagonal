@@ -28,7 +28,7 @@ public class Main
 	    for(int i=1;i<arr.length;i++)
 	    {
 	        int I=i;
-	        int J=2;
+	        int J=A[0]length-1;
 	        while(I<arr.length && J>=0)
 	        {
 	           System.out.println(arr[I][J]);
