@@ -1,0 +1,40 @@
+/******************************************************************************
+
+This is the code to traverse the matrix in a diagonal from right to left.
+
+*******************************************************************************/
+public class Main
+{
+	public static void main(String[] args) {
+		System.out.println("Hello World");
+		int[][] arr = {
+		    {1,2,3 ,10},
+		    {4,5,6 ,11},
+		    {7,8,9 ,12}
+		    
+		};
+		for(int j=0;j<arr[0].length;j++)
+		{
+		    int I = 0;
+		    int J=j;
+		    while(I<arr.length  && J>=0)
+		    {
+		        System.out.println(arr[I][J]);
+		        I++;
+		        J--;
+		    }
+	        
+	    }
+	    for(int i=1;i<arr.length;i++)
+	    {
+	        int I=i;
+	        int J=2;
+	        while(I<arr.length && J>=0)
+	        {
+	           System.out.println(arr[I][J]);
+		        I++;
+		        J--; 
+	        }
+	    }
+	}
+}
