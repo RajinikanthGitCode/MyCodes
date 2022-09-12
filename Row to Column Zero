@@ -1,0 +1,39 @@
+public class Solution {
+    public int[][] solve(int[][] A) {
+        int[] row = new int[A.length];
+        int[] col = new int[A[0].length];
+        for(int i=0;i<A.length;i++)
+        {
+            row[i]=-1;
+        }
+         for(int i=0;i<A[0].length;i++)
+        {
+            col[i]=-1;
+        }
+        //Traverse the input matrix and mark the zeroes
+        for(int i=0;i<A.length;i++)
+        {
+            for(int j=0;j<A[0].length;j++)
+            {
+                if(A[i][j]==0)
+                {
+                    row[i]=0;
+                    col[j]=0;
+                }
+            }
+        }
+        //now travese again and check for row or col is 0
+
+        for(int i=0;i<A.length;i++)
+        {
+            for(int j=0;j<A[0].length;j++)
+            {
+                if(row[i]==0 || col[j]==0)
+                {
+                    A[i][j]=0;
+                }
+            }
+        }
+        return A;
+    }
+}
