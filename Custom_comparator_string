@@ -1,0 +1,73 @@
+public class Solution {
+    // DO NOT MODIFY THE LIST. IT IS READ ONLY
+    public String largestNumber(final List<Integer> A) {
+
+        String[] strArray = new String[A.size()];
+
+        for(int i=0;i<A.size();i++)
+
+        {
+
+            strArray[i]=Integer.toString(A.get(i));
+
+        }
+          Comparator<String> factorComparator = new Comparator<String>() {
+
+
+
+            public String String1(String a, String b)
+
+            {
+
+                String temp1=a+b;
+
+                return temp1;
+
+            }
+            public String String2(String a,String b)
+
+            {
+
+                String temp2=b+a;
+
+                return temp2;
+
+            }
+
+            @Override
+
+            public int compare(String a, String b)
+
+            {
+
+                String t1 = String1(a,b);
+
+                String t2 = String2(a,b);
+
+                
+
+                 return t1.compareTo(t2) > 0 ? -1 : 1;
+
+            }
+
+        };
+        if(strArray[0].equals("0"))
+
+        {
+
+            return "0";
+
+        }
+        Arrays.sort(strArray, factorComparator);
+        StringBuilder sb =new StringBuilder();
+        for(int i=0;i<strArray.length;i++)
+
+        {
+
+            sb.append(strArray[i]);
+
+        }
+        
+        return sb.toString();
+    }
+}
