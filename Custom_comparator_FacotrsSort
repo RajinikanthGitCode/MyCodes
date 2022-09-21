@@ -1,0 +1,50 @@
+public class Solution {
+    public ArrayList<Integer> solve(ArrayList<Integer> A) {
+
+    //Comparator<Integer> factorComparator = new Comparator<Integer>(){
+      Comparator<Integer> factorComparator = new Comparator<Integer>() {
+
+        public int findFacotrs(Integer A)
+        {
+            int factorCount=0;
+            for(int i=1;i<=Math.sqrt(A);i++)
+            {
+                if((A%i)==0)
+                {
+                    factorCount+=2;
+                }
+                if(A==i*i)
+                {
+                    factorCount--;
+                }
+            }
+            return factorCount;
+
+        }
+        
+        //@Override
+        //public int Compare(Integer A, Integer B)
+        @Override
+
+            public int compare(Integer A, Integer B)
+        {
+            int t1 = findFacotrs(A);
+            int t2 = findFacotrs(B);
+            if(t1==t2)
+            {
+                return A-B;
+            }
+            return findFacotrs(A)-findFacotrs(B);
+        }
+
+
+    };
+
+
+
+         Collections.sort(A, factorComparator);
+         return A;
+         
+        
+    }
+}
