@@ -24,6 +24,8 @@ public class Solution {
         
         //@Override
         //public int Compare(Integer A, Integer B)
+        //C shud be smaller letter
+        
         @Override
 
             public int compare(Integer A, Integer B)
