@@ -1,0 +1,63 @@
+/******************************************************************************
+
+Welcome to GDB Online.
+GDB online is an online compiler and debugger tool for C, C++, Python, Java, PHP, Ruby, Perl,
+C#, OCaml, VB, Swift, Pascal, Fortran, Haskell, Objective-C, Assembly, HTML, CSS, JS, SQLite, Prolog.
+Code, Compile, Run and Debug online from anywhere in world.
+Bucket sort code
+
+*******************************************************************************/
+import java.util.*;
+import java.util.Collections;
+public class Main
+{
+    static void bucketSort(float arr[], int n)
+    {
+        if (n <= 0)
+            return;
+  
+        // 1) Create n empty buckets
+        //@SuppressWarnings("unchecked")
+        Vector<Float>[] buckets = new Vector[n];
+  
+        for (int i = 0; i < n; i++) {
+            buckets[i] = new Vector<Float>();
+            //System.out.println(buckets[i]+" buckets of i");
+        }
+  
+        // 2) Put array elements in different buckets
+        for (int i = 0; i < n; i++) {
+            float idx = arr[i] * n;
+            System.out.println(idx+" buckets of i "+arr[i]+" array val "+ n+" n val");
+            buckets[(int)idx].add(arr[i]);
+        }
+  
+        // 3) Sort individual buckets
+        for (int i = 0; i < n; i++) {
+            Collections.sort(buckets[i]);
+        }
+  
+        // 4) Concatenate all buckets into arr[]
+        int index = 0;
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < buckets[i].size(); j++) {
+                arr[index++] = buckets[i].get(j);
+            }
+        }
+    }
+  
+	public static void main(String[] args) {
+		System.out.println("Hello World");
+		 float arr[] = { (float)0.897, (float)0.565,
+                        (float)0.656, (float)0.1234,
+                        (float)0.665, (float)0.3434 };
+  
+        int n = arr.length;
+        bucketSort(arr, n);
+  
+        System.out.println("Sorted array is ");
+        for (float el : arr) {
+            System.out.print(el + " ");
+        }
+	}
+}
