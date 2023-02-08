@@ -1,0 +1,24 @@
+public class Main
+{
+    public static void gen(int[] A, int index)
+    {
+        if(index==2)
+        {
+            for(int i=0;i<2;i++)
+            {
+                System.out.print(A[i]);
+            }
+            System.out.println("");
+            return;
+        }
+        A[index]=0;
+        gen(A,index+1);
+        A[index]=1;
+        gen(A,index+1);
+    }
+	public static void main(String[] args) {
+		System.out.println("Hello World");
+		int[] A= new int[2];
+		gen(A,0);
+	}
+}
